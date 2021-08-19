@@ -53,7 +53,6 @@
       </nav>
    </header>
    <main>
-
       <section class="container mt-5 mb-5">
          <div class="container mb-8">
             <div class="row d-flex justify-content-md-between">
@@ -64,29 +63,33 @@
                         <label for="exampleFormControlInput1" class="form-label">Nombre</label>
                         <form id="form-add-category" action="">
                            <div class="input-group mb-3">
-                              <input type="text" name="name" id="name" class="form-control" />
-                              <button class="btn btn-outline-secondary" type="submit"
-                                 id="button-addon2">Agregar</button>
+                              <input type="text" name="name" id="writeNewCategory" class="form-control">
+                              <button class="btn btn-outline-secondary" type="submit" id="btnNewCategory"
+                                 value="Agregar Tarea" type="submit">Agregar</button>
                            </div>
                         </form>
-
-                        <div class="container col-10 mt-4">
-                           <div class="container col-6 text-center">
-                              <h4>------------------</h4>
-                              <p>----------------------------------</p>
-                           </div>
-                        </div>
+                        <div id="listaCategorias"></div>
                      </div>
                   </div>
                </div>
             </div>
+         </div>
+
+
       </section>
 
       <script src="./assets/js/bootstrap.min.js"></script>
+      <script src="./script.js"></script>
+      <script src="./assets/categories.js"></script>
+
+
+      <!--+++++++++++++++++++++++++++++++++++++++++++++
       <script src=".tasks.js"></script>
       <script src=".script.js"></script>
-      <script src=".categories.js"></script>
       <script src=".functions.js"></script>
+
++++++++++++++++++++++++++-->
+
 </body>
 
 </html>
