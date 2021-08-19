@@ -1,7 +1,16 @@
+// //inicializacion de la aplicacion vamos a buscar lo guardado en el local storage 
+// const init = () => {
+//   cont storage = JSON.parse(localStorage.getItem('everythingInStorage'));
 
-//PARA QUE APAREZCA Y DESAPAREZCA EL SECTION DE 
-panelAsideTxt.style = 'display: none';
-btnTxt.addEventListener('click', () => {
-  panelAsideTxt.style = 'display: inline';
-  panelAsideImg.style = 'display: none';
-})
+
+//***************************aca se guardan en el localStorage */
+const getStorage = function () {
+    let storageInfo = JSON.parse(localStorage.getItem('localStorage-ahorradas'));
+    if (!storageInfo) {
+        storageInfo = {
+            categories: [],
+            operations: []
+        };
+    }
+    return storageInfo;
+};

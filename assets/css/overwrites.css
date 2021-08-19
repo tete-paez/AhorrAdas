@@ -1,0 +1,60 @@
+a{
+    text-decoration: none;
+    color:rgb(0, 0, 0)
+}
+.navbar {
+    background-color: #317b88!important;
+}
+.navbar-brand  {
+    display: flex;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    font-size: 25px;
+    color: white;
+
+}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+/*----imagen en div en operaciones------*/
+
+.figure-img {
+    width: 500px;
+}
+
+/*----del div de categorias "nombre" ------*/
+
+.form-label {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+/*-------color del boton ---------------*/
+
+.btn-primary {
+    background-color: #286874;
+    font-size: 20px;
+    color: white;
+
+}
+.btn-primary:hover {
+    background-color: #99d3dd;
+    font-size: 20px;
+    color: teal;
+}
