@@ -7,7 +7,7 @@
 const formAddCategory = document.getElementById("form-add-category");
 
 
-var getIdCategory = function () {
+const getIdCategory = function () {
     var storage = getStorage();
     if (storage.categories.length > 0) {
         var lastItem = storage.categories[storage.categories.length - 1];
@@ -55,13 +55,14 @@ const cargarCategorias = () => {
         row.className = 'row mt-1 mb-1';
 
         const col1 = document.createElement('div');
-        col1.className = 'col-9 align-items-center d-flex';
+        col1.className = 'col-9 align-items-center d-flex'; 
 
         const col2 = document.createElement('div');
         col2.className = 'col-3 align-items-center justify-content-end d-flex';
 
         const text = document.createTextNode(item.name);
-
+        text.className = "eliminame";//le agregue "eliminame" para luego eliminar por classlist
+        
         const btnEditar = document.createElement('a');
         btnEditar.className = "btn me-3";
         //btnEditar.setAttribute("data","editar");
@@ -86,11 +87,54 @@ const cargarCategorias = () => {
 }
 cargarCategorias();
 
+/********************************************************************************** */
+//funcion eliminar categoria opcion 3: si donde hago el click contiene el classlist ese, se elimina  
+document.addEventListener("click", function (e) {
+    const itemParaElminar = e.target;
+      if (itemParaElminar.classList.contains("eliminame")) {
+          itemParaElminar.remove();
+      //saveCategories();
+    }
+  });
 
 /********************************************************************************** */
-//funcion eliminar categoria:
+//funcion eliminar categoria opcion 1:
+
+
+//     const eliminarItemCategoria = function (e) {
+//     let idCategoria = e.target.dataset.id;
+//     let storage = getStorage();
+//     let categories = storage.categories;
+//     let categoriasActualizadas = categories.filter(function (category) { return idCategoria !== category.id; });
+//     //localStorage.setItem('to-storage', JSON.stringify(__assign(__assign({}, storage), { categories: categoriasActualizadas })));
+//     actualizarListaCategorias();
+// };
+
 //test4.filter(persona=> persona.name!=="tete")
 //test4.filter(persona=> persona.name!==nameElimanr)
+
+
+
+
+
+/********************************************************************************** */
+//funcion eliminar categoria opcion 2:
+
+// document.addEventListener('click', function (e) {
+//     let itemParaEliminar = document.getElementById('btnEliminarCategoria')
+//     let eliminarItemCategoria = e.target;
+//     if (eliminarItemCategoria.id('btnEliminarCategoria')) {
+//         eliminarItemCategoria.remove();
+//         listaCategorias();
+//     }
+// });
+/********************************************************************************** */
+
+
+
+
+
+
 
 /********************************************************************************** */
 
