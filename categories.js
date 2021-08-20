@@ -52,7 +52,7 @@ const cargarCategorias = () => {
     const storage = getStorage();
     for (const item of storage.categories) {
         const row = document.createElement('div');
-        row.className = 'row mt-1 mb-1';
+        row.className = 'row mt-1 mb-1 eliminame';//le agregue "eliminame" para luego eliminar por classlist pero me elimina el texto si el click lo hago en el texto
 
         const col1 = document.createElement('div');
         col1.className = 'col-9 align-items-center d-flex'; 
@@ -61,8 +61,7 @@ const cargarCategorias = () => {
         col2.className = 'col-3 align-items-center justify-content-end d-flex';
 
         const text = document.createTextNode(item.name);
-        text.className = "eliminame";//le agregue "eliminame" para luego eliminar por classlist
-        
+       
         const btnEditar = document.createElement('a');
         btnEditar.className = "btn me-3";
         //btnEditar.setAttribute("data","editar");
@@ -87,15 +86,6 @@ const cargarCategorias = () => {
 }
 cargarCategorias();
 
-/********************************************************************************** */
-//funcion eliminar categoria opcion 3: si donde hago el click contiene el classlist ese, se elimina  
-document.addEventListener("click", function (e) {
-    const itemParaElminar = e.target;
-      if (itemParaElminar.classList.contains("eliminame")) {
-          itemParaElminar.remove();
-      //saveCategories();
-    }
-  });
 
 /********************************************************************************** */
 //funcion eliminar categoria opcion 1:
@@ -128,9 +118,38 @@ document.addEventListener("click", function (e) {
 //         listaCategorias();
 //     }
 // });
+
 /********************************************************************************** */
+//funcion eliminar categoria opcion 3: 
+//si donde hago el click contiene el classlist ese, se elimina  pero solo del browser no del local
 
+const itemParaEliminar = (e) => {
+    const idParaEliminar = e.target.dataset.id.newCategory; //capturo el id de lo que quiero seleccionar
+    let storageAux =  getStorage(); //declaro la variable para que me guarde o que tengo ya guardado 
+    let itemsToEliminate;
+    for (let i = 0; storageAux.categories.length; i++) {//recorro el storage donde tengo las categories
+        if (storageAux.categories[i].id==idParaEliminar){
+            itemsToEliminate = storageAux.categories[i].name;
+            storageAux.categories.splice(i,1);
+            break
+        }
+        
+     }
+}
 
+document.addEventListener("click", function (e) {
+
+    const itemParaElminar = e.target;
+      if (itemParaElminar.classList.contains("eliminame")) {
+          itemParaElminar.remove();
+      //saveCategories();
+    }
+  });
+
+	const deleteBtn = document.querySelectorAll(".delete-btn");
+	for (let i = 0; i < deleteBtn.length; i++) {
+	//	deleteBtn[i].addEventListener("click", itemParaElminar);
+	}
 
 
 
