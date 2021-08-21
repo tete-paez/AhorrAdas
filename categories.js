@@ -18,7 +18,6 @@ const getIdCategory = function () {
 getIdCategory();
 
 /******************************************************/
-
 const createCategory = (e) => {
     // e.preventDefault();
 
@@ -43,7 +42,6 @@ formAddCategory.addEventListener("submit", createCategory);
 
 
 /********************************************************************************** */
-
 const itemParaEliminar = (e) => {
     const idParaEliminar = e.target.dataset.category; //capturo el id de lo que quiero seleccionar
     console.log(idParaEliminar);
@@ -60,7 +58,6 @@ const itemParaEliminar = (e) => {
     localStorage.setItem("localStorage-ahorradas", JSON.stringify(storageAux));
     cargarCategorias();
 }
-
 //para que aparezcan las categorias que vienen por default 
 //tengo que crear los divs donde apareceran
 /********************************************************************************** */
