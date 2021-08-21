@@ -1,6 +1,6 @@
 /******************************************************/
 //para traer desde el local
-/********************************************************************************** */
+/****************************************************** */
 const getIdOperations = function () {
     let storage = getStorage();
     if (storage.operations.length > 0) {
@@ -10,6 +10,27 @@ const getIdOperations = function () {
     return 1;
 };
 getIdOperations();
+
+/******************************************************/
+//funcion para mostrar las nuevas categorias del local storage 
+//en el select de filtros en el index
+/******************************************************/
+
+const categoriasDeNuevaOperacion = () => {
+
+    const storage = getStorage();
+
+    const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
+
+
+    for (const category of storage.categories) {
+        const elem = document.createElement("option");
+        elem.innerText = category.name;
+        elem.value = category.name;
+        selectDeCategoriasNuevaOperacion.appendChild(elem);
+    }
+};
+categoriasDeNuevaOperacion();
 
 /******************************************************/
 //desde local storage
@@ -44,20 +65,17 @@ formAddOperation.addEventListener("submit", createNewOperation);
 //btnNewOperation es el boton del boton AGREGAR
 
 btnNewOperation = document.getElementById("btnNewOperation");
+
 /******************************************************/
-//funcion para mostrar las nuevas categorias del local storage en ese input select
-const categoriasDeNuevaOperacion = () => {
+//funcionpara que apárezca la nueva operacion en el index - en el div operaciones
+/******************************************************/
 
+const cargarOperaciones = () => {
+    const listaOperaciones = document.getElementById("seccionOperaciones");
+    listaOperacioness.innerHTML = ""; //con esto dejo el div vacio
     const storage = getStorage();
+//console.log(storage.operations);
 
-    const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
 
 
-    for (const category of storage.categories) {
-        const elem = document.createElement("option");
-        elem.innerText = category.name;
-        elem.value = category.name;
-        selectDeCategoriasNuevaOperacion.appendChild(elem);
-    }
-};
-categoriasDeNuevaOperacion();
+}
