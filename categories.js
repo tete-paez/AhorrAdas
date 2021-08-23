@@ -58,8 +58,9 @@ const itemParaEliminar = (e) => {
     localStorage.setItem("localStorage-ahorradas", JSON.stringify(storageAux));
     cargarCategorias();
 }
-//para que aparezcan las categorias que vienen por default 
-//tengo que crear los divs donde apareceran
+
+/********************************************************************************** */
+//funcion para que me acrgue las categorias que cargo desde el input + agregar 
 /********************************************************************************** */
 
 const cargarCategorias = () => {
@@ -106,3 +107,38 @@ const cargarCategorias = () => {
 }
 cargarCategorias();
 
+/********************************************************************************** */
+//funcion para crear las que ya vienen por defecto:
+/********************************************************************************** */
+const creandoCategoriasPorDefecto = document.getElementById("listaCategorias");
+
+const row5 = document.createElement("div");
+row5.className ="row mt-1 mb-1";
+
+const row6 = document.createElement("div");
+row6.className ="col-9 align-items-center d-flex";
+row6.appendChild(document.createTextNode("tetetetetetetetetetetetet"));
+
+const row4 = document.createElement("div");
+row4.className = "col-3 align-items-center justify-content-end d-flex";
+
+const ancla = document.createElement("a");
+ancla.className = "btn me-3";
+ancla.href = "/editarCategoria.html";
+ancla.appendChild(document.createTextNode("Editar"));
+
+const boton2 = document.createElement("button");
+boton2.className = "btn delete-btn";
+//boton2.setAttribute("id","btnEliminarCategoria");
+boton2.appendChild(document.createTextNode("Eliminar"));
+boton2.setAttribute("data-category","1");
+
+creandoCategoriasPorDefecto.appendChild(row5);
+row5.appendChild(row6);
+row5.appendChild(row4);
+row4.appendChild(ancla);
+row4.appendChild(boton2);
+
+/********************************************************************************** */
+//funcion para que funcione la funcion deleteBtn (de eliminar categorias agregadas pero las que vienen x defecto)
+/********************************************************************************** */

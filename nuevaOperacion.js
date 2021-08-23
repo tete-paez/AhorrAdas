@@ -76,6 +76,4 @@ const cargarOperaciones = () => {
     const storage = getStorage();
 //console.log(storage.operations);
 
-
-
 }

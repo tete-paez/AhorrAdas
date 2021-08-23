@@ -1,7 +1,3 @@
-// //inicializacion de la aplicacion vamos a buscar lo guardado en el local storage 
-// const init = () => {
-//   cont storage = JSON.parse(localStorage.getItem('everythingInStorage'));
-
 
 //***************************aca se guardan en el localStorage */
 const getStorage = function () {
@@ -15,70 +11,47 @@ const getStorage = function () {
     return storageInfo;
 };
 
+//**********************************************************************************
+//creando seccion operaciones
+/********************************************************************************** */
+
+const creandoSeccionOperaciones = document.getElementById("seccionOperaciones");
+
+const row0 = document.createElement("div");
+row0.className = "d-grid gap-2 d-md-flex justify-content-md-between";
+
+const titulo = document.createElement("h3");
+titulo.className = "mt-3";
+
+const txtTitulo = document.createTextNode("Operaciones");
+
+const boton = document.createElement("a");
+boton.className = "btn btn-primary mt-3";
+boton.setAttribute("id", "btnNuevaOperacion");
+boton.href = "./nuevaOperacion.html";
+const txtBoton = document.createTextNode("+Nueva Operación");
+
+const row2 = document.createElement("div");
+row2.className = "container col-10 mt-4";
+
+const imagen = document.createElement("figure");
+imagen.className = "figure";
+
+const imagenImg = document.createElement("img");
+imagenImg.className = "figure-img img-fluid rounded";
+imagenImg.setAttribute("src", "./assets/img/undraw_Investment_data_re_sh9x.svg");
 
 
-// // <!--+++++++++++++++++++++++     TYPESCRIPT       +++++++++++++++-->
-// // <!--+++++++++++++++++++++++  del profe  clase sabado 31-07 +++++++++++++++++++++-->
-// // <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+creandoSeccionOperaciones.appendChild(row0);
+creandoSeccionOperaciones.appendChild(row2);
 
-// type LocalStorage = {
-//     categories?: Category[]
-//     users?: User[]
-//     tasks?: Task[]
-//  }
- 
-//  type User = {
-//     id: number,
-//     name: string,
-//     email: string,
-//     pass: string
-//  }
- 
-//  type Category = {
-//     id: number,
-//     name: string,
-//     slug: string
-//  }
- 
-//  type Task = {
-//     id: number,
-//     title: string,
-//     date_start: string,
-//     date_end: string,
-//     categories: Category[],
-//     user: User,
-//     description: string,
-//     status: "done" | "in progress" | "canceled" | "to do"
-//  }
- 
-//  const getStorage = (): LocalStorage => {
-//     let locStor: LocalStorage = JSON.parse(localStorage.getItem('todo-storage'));
- 
-//     if(!locStor) {
-//        locStor = {
-//           categories: [],
-//           users: [],
-//           tasks: []
-//        } 
-//     }
- 
-//     return locStor;
-//  }
- 
- 
-//  const usuario1: User = {
-//     id: 1,
-//     email: 'asd@asd.com',
-//     name: 'Adrián',
-//     pass: 'asd123'
-//  }
- 
-//  for(const prop in usuario1) {
-//     console.log(prop, usuario1[prop]);
-//  }
- 
-//  const props = Object.keys(usuario1);
- 
-//  for(const prop of props) {
-//     console.log(prop, usuario1[prop]);
-//  }
+row0.appendChild(titulo);
+titulo.appendChild(txtTitulo);
+row0.appendChild(boton);
+boton.appendChild(txtBoton);
+row2.appendChild(imagen);
+imagen.appendChild(imagenImg);
+
+/********************************************************************************** */
+
+/********************************************************************************** */
