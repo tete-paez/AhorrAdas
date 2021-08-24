@@ -1,4 +1,6 @@
-/********************************************************************************** */
+
+
+//********************************************************************************** */
 //trayendo desde local storage
 //CREANDO LA NUEVA CATEGOria 
 //para que aparezcan las que sumamos desde el input de nuevas categorias
@@ -17,7 +19,8 @@ const getIdCategory = function () {
 };
 getIdCategory();
 
-/******************************************************/
+//***************************************************************************
+
 const createCategory = (e) => {
     // e.preventDefault();
 
@@ -37,14 +40,14 @@ const createCategory = (e) => {
     createCategory();
 }
 
-
 formAddCategory.addEventListener("submit", createCategory);
 
 
-/********************************************************************************** */
+//**********************************************************************************
+
 const itemParaEliminar = (e) => {
     const idParaEliminar = e.target.dataset.category; //capturo el id de lo que quiero seleccionar
-    console.log(idParaEliminar);
+    //console.log(idParaEliminar);
 
     let storageAux = getStorage(); //declaro la variable para que me guarde o que tengo ya guardado 
     let itemsToEliminate;
@@ -59,9 +62,11 @@ const itemParaEliminar = (e) => {
     cargarCategorias();
 }
 
-/********************************************************************************** */
+
+
+//********************************************************************************** 
 //funcion para que me acrgue las categorias que cargo desde el input + agregar 
-/********************************************************************************** */
+//********************************************************************************** 
 
 const cargarCategorias = () => {
     const listaCategorias = document.getElementById("listaCategorias");
@@ -107,38 +112,68 @@ const cargarCategorias = () => {
 }
 cargarCategorias();
 
-/********************************************************************************** */
+//********************************************************************************
 //funcion para crear las que ya vienen por defecto:
-/********************************************************************************** */
-const creandoCategoriasPorDefecto = document.getElementById("listaCategorias");
+//****************************COMIDAS*****************************************************
+// const creandoCategoriasPorDefecto = document.getElementById("listaCategorias");
 
-const row5 = document.createElement("div");
-row5.className ="row mt-1 mb-1";
+// const row5 = document.createElement("div");
+// row5.className ="row mt-1 mb-1";
 
-const row6 = document.createElement("div");
-row6.className ="col-9 align-items-center d-flex";
-row6.appendChild(document.createTextNode("tetetetetetetetetetetetet"));
+// const row6 = document.createElement("div");
+// row6.className ="col-9 align-items-center d-flex";
+// row6.appendChild(document.createTextNode("Comidasssssssssss"));
+// const row4 = document.createElement("div");
 
-const row4 = document.createElement("div");
-row4.className = "col-3 align-items-center justify-content-end d-flex";
+// row4.className = "col-3 align-items-center justify-content-end d-flex";
+// const ancla = document.createElement("a");
+// ancla.className = "btn me-3";
+// ancla.href = "/editarCategoria.html";
+// ancla.appendChild(document.createTextNode("Editar"));
+// const boton2 = document.createElement("button");
+// boton2.className = "btn delete-btn";
+// //boton2.setAttribute("id","btnEliminarCategoria");
+// boton2.appendChild(document.createTextNode("Eliminar"));
+// boton2.setAttribute("data-category","1");
+// creandoCategoriasPorDefecto.appendChild(row5);
+// row5.appendChild(row6);
+// row5.appendChild(row4);
+// row4.appendChild(ancla);
+// row4.appendChild(boton2);
 
-const ancla = document.createElement("a");
-ancla.className = "btn me-3";
-ancla.href = "/editarCategoria.html";
-ancla.appendChild(document.createTextNode("Editar"));
+//------------------------------------------------------------------
+// const creandoCategoriasPorDefecto = document.getElementById("listaCategorias");
+// const categoriasTbody = creandoCategoriasPorDefecto.getElementById("listaCategorias");
 
-const boton2 = document.createElement("button");
-boton2.className = "btn delete-btn";
-//boton2.setAttribute("id","btnEliminarCategoria");
-boton2.appendChild(document.createTextNode("Eliminar"));
-boton2.setAttribute("data-category","1");
+// categories.map((element) => {
+// 	const row = document.createElement("tr");
 
-creandoCategoriasPorDefecto.appendChild(row5);
-row5.appendChild(row6);
-row5.appendChild(row4);
-row4.appendChild(ancla);
-row4.appendChild(boton2);
+// 	for (const prop in element) {
+// 		const celda = document.createElement("td");
+// 		const text = document.createTextNode(element[prop]);
 
-/********************************************************************************** */
+// 		celda.appendChild(text);
+// 		row.appendChild(celda);
+// 	}
+
+// 	creandoCategoriasPorDefecto.appendChild(row);
+// });
+
+
+
+
+//*********************************************************************************
 //funcion para que funcione la funcion deleteBtn (de eliminar categorias agregadas pero las que vienen x defecto)
-/********************************************************************************** */
+//**********************************************************************************
+
+const eliminarCategoriaPorDefault = () => {
+
+}
+
+//**********************************************************************************
+
+const init = () => {
+    cargarCategorias();
+};
+
+init();
