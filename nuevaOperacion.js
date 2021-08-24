@@ -1,6 +1,3 @@
-/******************************************************/
-//para traer desde el local
-/****************************************************** */
 const getIdOperations = function () {
     let storage = getStorage();
     if (storage.operations.length > 0) {
@@ -16,21 +13,21 @@ getIdOperations();
 //en el select de filtros en el index
 /******************************************************/
 
-const categoriasDeNuevaOperacion = () => {
+// const categoriasDeNuevaOperacion = () => {
 
-    const storage = getStorage();
+//     const storage = getStorage();
 
-    const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
+//     const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
 
 
-    for (const category of storage.categories) {
-        const elem = document.createElement("option");
-        elem.innerText = category.name;
-        elem.value = category.name;
-        selectDeCategoriasNuevaOperacion.appendChild(elem);
-    }
-};
-categoriasDeNuevaOperacion();
+//     for (const category of storage.categories) {
+//         const elem = document.createElement("option");
+//         elem.innerText = category.name;
+//         elem.value = category.name;
+//         selectDeCategoriasNuevaOperacion.appendChild(elem);
+//     }
+// };
+// categoriasDeNuevaOperacion();
 
 /******************************************************/
 //desde local storage
@@ -51,7 +48,7 @@ const createNewOperation = (e) => {
         id: getIdOperations(),
         name: nameOperation,
         monto: montoOperation,
-        fecha: dateOperation,
+        // fecha: dateOperation,
         tipo: typeOperation,
     };
 
@@ -59,8 +56,8 @@ const createNewOperation = (e) => {
     storageAux.operations.push(newOperation);
     localStorage.setItem("localStorage-ahorradas", JSON.stringify(storageAux));
 }
-
 formAddOperation.addEventListener("submit", createNewOperation);
+
 
 //btnNewOperation es el boton del boton AGREGAR
 
@@ -71,9 +68,86 @@ btnNewOperation = document.getElementById("btnNewOperation");
 /******************************************************/
 
 const cargarOperaciones = () => {
-    const listaOperaciones = document.getElementById("seccionOperaciones");
-    listaOperacioness.innerHTML = ""; //con esto dejo el div vacio
+    const listaOperaciones = document.getElementById("grillaOperaciones");
+    listaOperaciones.innerHTML = ""; //con esto dejo el div vacio
     const storage = getStorage();
-//console.log(storage.operations);
+    //console.log(storage.operations);
+    for (const item of storage.operations) {
+        const operacionesTable = document.createElement("table");
+        operacionesTable.className = "table";
 
+        const thead = document.createElement("thead");
+
+        const tr = document.createElement("tr");
+
+        const th1 = document.createElement("th");
+        th1.setAttribute("scope", "col")
+        th1.appendChild(document.createTextNode("Descripción"));
+
+        const th2 = document.createElement("th");
+        th2.setAttribute("scope", "col")
+        th2.appendChild(document.createTextNode("Categoria"));
+
+        const th3 = document.createElement("th");
+        th3.setAttribute("scope", "col")
+        th3.appendChild(document.createTextNode("Fecha"));
+
+        const th4 = document.createElement("th");
+        th4.setAttribute("scope", "col")
+        th4.appendChild(document.createTextNode("Monto"));
+
+        const th5 = document.createElement("th");
+        th5.setAttribute("scope", "col")
+        th5.appendChild(document.createTextNode("Acciones"));
+
+        operacionesTable.appendChild(thead);
+        thead.appendChild(tr);
+        tr.appendChild(th1);
+        tr.appendChild(th2);
+        tr.appendChild(th3);
+        tr.appendChild(th4);
+        tr.appendChild(th5);
+    }
+    const btnAgregar = document.getElementById("btnNewOperation");
+    for (let i = 0; i < btnNewOperation.length; i++) {
+        btnNewOperation[i].addEventListener("click", cargarOperaciones);
+    }
 }
+cargarOperaciones();
+
+
+
+
+
+
+/**********************************************************************/
+/********************************************************************************** */
+//funcion para mostrar las nuevas categorias del local storage 
+//en el select dnueva operacion
+
+const categoriasSelectNuevaOperacion = () => {
+
+    const storage = getStorage();
+
+    const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
+
+
+    for (const category of storage.categories) {
+        const elem = document.createElement("option");
+        elem.innerText = category.name;
+        elem.value = category.name;
+        selectDeCategoriasNuevaOperacion.appendChild(elem);
+    }
+};
+categoriasSelectNuevaOperacion();
+cargarOperaciones();
+
+
+
+
+
+// const init = () => {
+//     cargaOperaciones();
+// };
+
+// init();

@@ -4,7 +4,7 @@ const getStorage = function () {
     let storageInfo = JSON.parse(localStorage.getItem('localStorage-ahorradas'));
     if (!storageInfo) {
         storageInfo = {
-            categories: [],
+            categories: [{id:1, name:'Comida'},{id:2, name:'Educación'}, {id:3, name:'Salidas'}, {id:4, name:'Servicios'}, {id:5, name:'Trabajo'}],
             operations: []
         };
     }
@@ -33,6 +33,7 @@ const txtBoton = document.createTextNode("+Nueva Operación");
 
 const row2 = document.createElement("div");
 row2.className = "container col-10 mt-4";
+row2.setAttribute("id", "grillaOperaciones");
 
 const imagen = document.createElement("figure");
 imagen.className = "figure";
@@ -52,6 +53,26 @@ boton.appendChild(txtBoton);
 row2.appendChild(imagen);
 imagen.appendChild(imagenImg);
 
-/********************************************************************************** */
 
+/**********************************************************************/
 /********************************************************************************** */
+//funcion para mostrar las nuevas categorias del local storage 
+//en el select de filtros en el index
+
+const categoriasDeNuevaOperacion = () => {
+
+    const storage = getStorage();
+
+    const selectDeCategoriasNuevaOperacion = document.getElementById('categories');
+
+
+    for (const category of storage.categories) {
+        const elem = document.createElement("option");
+        elem.innerText = category.name;
+        elem.value = category.name;
+        selectDeCategoriasNuevaOperacion.appendChild(elem);
+    }
+};
+categoriasDeNuevaOperacion();
+cargarOperaciones();
+
