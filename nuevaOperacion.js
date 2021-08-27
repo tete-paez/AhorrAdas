@@ -8,26 +8,7 @@ const getIdOperations = function () {
 };
 getIdOperations();
 
-/******************************************************/
-//funcion para mostrar las nuevas categorias del local storage 
-//en el select de filtros en el index
-/******************************************************/
 
-// const categoriasDeNuevaOperacion = () => {
-
-//     const storage = getStorage();
-
-//     const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
-
-
-//     for (const category of storage.categories) {
-//         const elem = document.createElement("option");
-//         elem.innerText = category.name;
-//         elem.value = category.name;
-//         selectDeCategoriasNuevaOperacion.appendChild(elem);
-//     }
-// };
-// categoriasDeNuevaOperacion();
 
 /******************************************************/
 //desde local storage
@@ -61,18 +42,19 @@ formAddOperation.addEventListener("submit", createNewOperation);
 
 //btnNewOperation es el boton del boton AGREGAR
 
-btnNewOperation = document.getElementById("btnNewOperation");
+//btnNewOperation = document.getElementById("btnNewOperation");
 
 /******************************************************/
-//funcionpara que apárezca la nueva operacion en el index - en el div operaciones
+//funcionpara que apárezca la nueva operacion en el index - en el div operaciones pero no me anda 
 /******************************************************/
 
 const cargarOperaciones = () => {
-    const listaOperaciones = document.getElementById("grillaOperaciones");
+    const listaOperaciones = document.getElementById("operaciones");
     listaOperaciones.innerHTML = ""; //con esto dejo el div vacio
     const storage = getStorage();
     //console.log(storage.operations);
     for (const item of storage.operations) {
+        //primer renglon
         const operacionesTable = document.createElement("table");
         operacionesTable.className = "table";
 
@@ -107,6 +89,38 @@ const cargarOperaciones = () => {
         tr.appendChild(th3);
         tr.appendChild(th4);
         tr.appendChild(th5);
+
+        //segundo renglon
+    //const cuerpo = document.createElement("tbody");
+        /*
+        <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    
+
+*/
+
+
+
+
+
+
     }
     const btnAgregar = document.getElementById("btnNewOperation");
     for (let i = 0; i < btnNewOperation.length; i++) {
@@ -141,6 +155,28 @@ const categoriasSelectNuevaOperacion = () => {
 };
 categoriasSelectNuevaOperacion();
 cargarOperaciones();
+
+/******************************************************/
+//funcion para mostrar las nuevas categorias del local storage 
+//en el select de filtros en el index
+/******************************************************/
+
+// const categoriasDeNuevaOperacion = () => {
+
+//      const storage = getStorage();
+
+//      const selectDeCategoriasNuevaOperacion = document.getElementById('categories-nuevaOp');
+
+
+//      for (const category of storage.categories) {
+//          const elem = document.createElement("option");
+//          elem.innerText = category.name;
+//          elem.value = category.name;
+//          selectDeCategoriasNuevaOperacion.appendChild(elem);
+//      }
+//  };
+//  categoriasDeNuevaOperacion();
+
 
 
 
