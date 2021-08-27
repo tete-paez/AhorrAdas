@@ -42,16 +42,22 @@ const imagenImg = document.createElement("img");
 imagenImg.className = "figure-img img-fluid rounded";
 imagenImg.setAttribute("src", "./assets/img/undraw_Investment_data_re_sh9x.svg");
 
+const operaciones = document.createElement("div");
+operaciones.className ="col-md-8 bg-white rounded-3 border border-1 shadow ps-5";
+operaciones.setAttribute("id", "operaciones");
+
+
 
 creandoSeccionOperaciones.appendChild(row0);
-creandoSeccionOperaciones.appendChild(row2);
-
 row0.appendChild(titulo);
 titulo.appendChild(txtTitulo);
 row0.appendChild(boton);
 boton.appendChild(txtBoton);
+creandoSeccionOperaciones.appendChild(row2);
 row2.appendChild(imagen);
 imagen.appendChild(imagenImg);
+
+creandoSeccionOperaciones.appendChild(operaciones);
 
 
 /**********************************************************************/
@@ -59,20 +65,20 @@ imagen.appendChild(imagenImg);
 //funcion para mostrar las nuevas categorias del local storage 
 //en el select de filtros en el index
 
-const categoriasDeNuevaOperacion = () => {
+const filtroCategorias = () => {
 
     const storage = getStorage();
 
-    const selectDeCategoriasNuevaOperacion = document.getElementById('categories');
+    const selectDefiltroCategorias = document.getElementById('categories');
 
 
     for (const category of storage.categories) {
         const elem = document.createElement("option");
         elem.innerText = category.name;
         elem.value = category.name;
-        selectDeCategoriasNuevaOperacion.appendChild(elem);
+        selectDefiltroCategorias.appendChild(elem);
     }
 };
-categoriasDeNuevaOperacion();
+filtroCategorias();
 cargarOperaciones();
 
