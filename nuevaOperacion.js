@@ -22,7 +22,7 @@ const createNewOperation = (e) => {
 
     const nameOperation = form.descriptionOp.value;
     const montoOperation = form.amountOp.value;
-    const dateOperation = form.dateOp.value;
+    //const dateOperation = form.dateOp.value;
     const typeOperation = form.typeOp.value;
 
     const newOperation = {
@@ -49,7 +49,7 @@ formAddOperation.addEventListener("submit", createNewOperation);
 /******************************************************/
 
 const cargarOperaciones = () => {
-    const listaOperaciones = document.getElementById("operaciones");
+    const listaOperaciones = document.getElementById("seccionOperaciones");
     listaOperaciones.innerHTML = ""; //con esto dejo el div vacio
     const storage = getStorage();
     //console.log(storage.operations);
